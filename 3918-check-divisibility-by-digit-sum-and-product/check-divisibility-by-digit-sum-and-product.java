@@ -1,0 +1,19 @@
+class Solution {
+    public boolean checkDivisibility(int n) {
+        int sum=0;
+        int pro=1;
+        int original=n;
+
+       while(n>0){
+        int tem=n%10;
+        sum+=tem;
+        pro*=tem;
+        n=n/10;
+       } 
+       int result=sum+pro;
+       if(original%result==0||result==original){
+        return true;
+       }
+       return false;
+    }
+}
