@@ -26,7 +26,10 @@ class Solution {
         return new String(arr);
     }
 
-     private boolean isVowel(char ch) {
-        return "aeiouAEIOU".indexOf(ch) != -1;
+    public boolean isVowel(char ch) {
+        ch = Character.toLowerCase(ch);
+
+        return ch == 'a' || ch == 'e' || ch == 'i'
+                || ch == 'o' || ch == 'u';
     }
 }
