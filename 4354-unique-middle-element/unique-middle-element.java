@@ -1,20 +1,20 @@
 class Solution {
     public boolean isMiddleElementUnique(int[] nums) {
         int count=0;
-        int n=nums.length;
-        int result=n/2;
+        
+
 
     for(int i=0;i<nums.length;i++){
-        if(nums[i]==nums[result]){
+        if(nums[nums.length/2]==nums[i]){
             count++;
         }
     }
-    if(count>=2)return false;
+    if(count==1)return true;
     
 
         
 
 
-        return true;
+        return false;
     }
 }
