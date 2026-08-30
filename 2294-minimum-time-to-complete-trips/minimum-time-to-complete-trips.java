@@ -2,13 +2,12 @@ class Solution {
     public long minimumTime(int[] time, int totalTrips) {
 
         long left = 1;
-        long minTime = Integer.MAX_VALUE;
+        long right = (long) time[0] * totalTrips;
 
+        // Find fastest bus
         for (int t : time) {
-            minTime = Math.min(minTime, t);
+            right = Math.min(right, (long) t * totalTrips);
         }
-
-        long right = minTime * totalTrips;
 
         while (left < right) {
 
@@ -18,6 +17,11 @@ class Solution {
 
             for (int t : time) {
                 trips += mid / t;
+
+                // No need to calculate further
+                if (trips >= totalTrips) {
+                    break;
+                }
             }
 
             if (trips >= totalTrips) {
