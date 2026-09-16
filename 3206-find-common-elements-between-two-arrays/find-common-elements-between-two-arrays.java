@@ -1,24 +1,34 @@
 class Solution {
     public int[] findIntersectionValues(int[] nums1, int[] nums2) {
-      
-      int count=0;
-      int so=0;
-      for(int i=0;i<nums1.length;i++){
-        for(int j=0;j<nums2.length;j++){
-            if(nums1[i]==nums2[j]){
+
+        HashSet<Integer> set1 = new HashSet<>();
+        HashSet<Integer> set2 = new HashSet<>();
+
+        for (int x : nums1) {
+            set1.add(x);
+        }
+
+        for (int x : nums2) {
+            set2.add(x);
+        }
+
+        int count = 0;
+        int so = 0;
+
+        // nums1 ke elements nums2 mein hain?
+        for (int x : nums1) {
+            if (set2.contains(x)) {
                 count++;
-                break;
             }
         }
-      }  
-       for(int i=0;i<nums2.length;i++){
-        for(int j=0;j<nums1.length;j++){
-            if(nums2[i]==nums1[j]){
+
+        // nums2 ke elements nums1 mein hain?
+        for (int x : nums2) {
+            if (set1.contains(x)) {
                 so++;
-                break;
             }
         }
-      } 
-    return new int[] {count,so}; 
+
+        return new int[]{count, so};
     }
 }
