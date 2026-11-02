@@ -1,10 +1,12 @@
 class Solution {
     public boolean isPowerOfFour(int n) {
-        for(int i=0;i<=30;i++){
-            long result=(long)Math.pow(4,i);
-            if(result==n)return true;
-
+        if(n<=0) return false;
+        if(n == 1){
+            return true;
         }
-        return false;
+        if(n%4 == 0){
+           return isPowerOfFour(n/4);
+        }
+        return false; 
     }
 }
